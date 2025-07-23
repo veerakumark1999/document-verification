@@ -1,15 +1,14 @@
-# First stage: build Spring Boot app with Maven
-FROM maven:3.8.7-eclipse-temurin-17 AS build
+# Use Java 17 base image
+FROM eclipse-temurin:17-jdk
 
+# Set working directory inside container
 WORKDIR /app
-COPY . .
-RUN mvn clean install -DskipTests
 
-# Second stage: run the JAR file
-FROM eclipse-temurin:17-jre
+# Copy your JAR file (match the name)
+COPY target/DodumentVerify-0.0.1-SNAPSHOT.jar app.jar
 
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-
+# Expose the port Spring Boot uses
 EXPOSE 8080
+
+# Run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
