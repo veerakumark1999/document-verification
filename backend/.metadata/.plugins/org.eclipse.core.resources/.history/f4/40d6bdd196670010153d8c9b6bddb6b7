@@ -1,0 +1,39 @@
+package com.document.controller;
+
+import java.time.LocalDate;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.document.entity.User;
+import com.document.service.UserService;
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+@RequestMapping("/api/user")
+
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	@PostMapping("/verify")
+	public ResponseEntity<?> verifyUser(@RequestBody Map<String, String> payload) {
+		String name = payload.get("name");
+		LocalDate dob = LocalDate.parse(payload.get("dob"));
+		String pan = payload.get("pan");
+
+		return ResponseEntity.ok(userService.verifyUser(name, dob, pan));
+	}
+
+	@PostMapping("/register")
+	public ResponseEntity<String> registerUser(@RequestBody User user) {
+		String message = userService.registerUser(user);
+		return ResponseEntity.ok(message);
+	}
+}

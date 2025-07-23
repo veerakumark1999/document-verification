@@ -1,0 +1,5 @@
+package com.document.entity;
+
+public class User {
+
+}

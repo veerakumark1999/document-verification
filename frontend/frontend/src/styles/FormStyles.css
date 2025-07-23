@@ -1,0 +1,154 @@
+/* === Global Reset === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #c1dfc4, #deecdd);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #006d6d;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+.navbar-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links button {
+  background-color: white;
+  color: #006d6d;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links button.active,
+.nav-links button:hover {
+  background-color: #00a088;
+  color: white;
+}
+
+/* === Form Containers === */
+.form-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 1rem;
+  color: #004d40;
+}
+
+/* === Inputs & Button === */
+form input,
+form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form input {
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+
+form button:hover {
+  background-color: #004d40;
+}
+
+/* === Messages === */
+.form-message {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.success {
+  background-color: #d0f0c0;
+  color: green;
+}
+
+.error {
+  background-color: #fcdede;
+  color: red;
+}
+
+/* === Verification Result === */
+.verification-result {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.verified-box,
+.error-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f0fdf4;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+}
+
+.error-box {
+  background-color: #fce4e4;
+  color: #b71c1c;
+}
+
+/* === Media Queries === */
+@media (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+}
